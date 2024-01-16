@@ -6,6 +6,6 @@
 
 ### Deploy:
 ```
-kubectl apply -f https://raw.githubusercontent.com/wiktorvip/app-webcolor/main/manifest/Deployment.yaml
-kubectl apply -f https://raw.githubusercontent.com/wiktorvip/app-webcolor/main/manifest/Service.yaml
+kubectl apply -f https://raw.githubusercontent.com/wiktorvip/app-k8s-dashboard-own/main/manifest/Deployment.yaml
+kubectl apply -f https://raw.githubusercontent.com/wiktorvip/app-k8s-dashboard-own/main/manifest/Service.yaml
 ```
