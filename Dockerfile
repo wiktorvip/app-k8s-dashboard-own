@@ -1,4 +1,4 @@
-FROM python:3.10-alpine
+FROM python:alpine
 
 #RUN apk add --no-cache curl python pkgconfig python-dev openssl-dev libffi-dev musl-dev
 RUN apk add --no-cache curl pkgconfig openssl-dev libffi-dev musl-dev
@@ -11,6 +11,6 @@ RUN pip install -r requirements.txt
 
 ADD . /opt/webapp-conntest
 
-EXPOSE 8080
+EXPOSE 9040
 
 ENTRYPOINT ["python", "app.py"]

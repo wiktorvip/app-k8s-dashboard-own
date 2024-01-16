@@ -42,4 +42,4 @@ if __name__ == "__main__":
     if os.path.exists(SA_TOKEN_PATH):
         f = open(SA_TOKEN_PATH, "r")
         SA_TOKEN_FROM_PATH = f.read()
-    app.run(host="0.0.0.0", port=8080)
+    app.run(host="0.0.0.0", port=9040)

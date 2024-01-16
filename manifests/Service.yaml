@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lb-svc-app-k8s-dashboard-own
+  labels:
+    app: app-k8s-dashboard-own
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 9040
+  selector:
+    app: app-k8s-dashboard-own

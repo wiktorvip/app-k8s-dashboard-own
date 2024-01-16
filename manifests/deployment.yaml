@@ -1,31 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    app: app-k8s-dashboard-own
   name: app-k8s-dashboard-own
 spec:
+  replicas: 4
   selector:
-      matchLabels:
-        name: app-k8s-dashboard-own
+    matchLabels:
+      app: app-k8s-dashboard-own
+  strategy: {}
   template:
     metadata:
       labels:
-        name: app-k8s-dashboard-own
+        app: app-k8s-dashboard-own
     spec:
       containers:
-      - name: app-k8s-dashboard-own
-        image: ghcr.io/wiktorvip/app-k8s-dashboard-own:1.0
+      - image: ghcr.io/wiktorvip/app-k8s-dashboard-own:1.0
+        name: app-k8s-dashboard-own
         ports:
-        - containerPort: 8080
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: np-app-k8s-dashboard-own
-spec:
-  selector:
-    name: app-k8s-dashboard-own
-  type: NodePort
-  ports:
-  - port: 8080
-    targetPort: 8080
-    nodePort: 30880
+          - containerPort: 9040
+
