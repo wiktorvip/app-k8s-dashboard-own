@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-k8s-dashboard-own
+spec:
+  selector:
+      matchLabels:
+        name: app-k8s-dashboard-own
+  template:
+    metadata:
+      labels:
+        name: app-k8s-dashboard-own
+    spec:
+      containers:
+      - name: app-k8s-dashboard-own
+        image: ghcr.io/wiktorvip/app-k8s-dashboard-own:1.0
+        ports:
+        - containerPort: 8080
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: np-app-k8s-dashboard-own
+spec:
+  selector:
+    name: app-k8s-dashboard-own
+  type: NodePort
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 30880
