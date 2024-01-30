@@ -19,6 +19,9 @@ def test():
     global SA_TOKEN
     json_data = request.get_json(silent=True)
 
+    print("json_data")
+    print(json_data)
+
     SA_TOKEN = "token" in json_data and json_data["token"] or SA_TOKEN_FROM_PATH
 
     print("SA_TOKEN=" + str(SA_TOKEN))
@@ -26,8 +29,12 @@ def test():
     test_results = requests.get('https://kubernetes.default.svc/api/v1/namespaces/default/pods', headers={'Authorization': 'Bearer ' + str(SA_TOKEN)},
                                         verify=False)
 
-    return (test_results.text, test_results.status_code, test_results.headers.items())
+    print("test_results.text")
+    print(test_results.text)
+    print("test_results.status_code")
+    print(test_results.status_code)
 
+    return (test_results.text, test_results.status_code)
 
 @app.route('/')
 def main():
